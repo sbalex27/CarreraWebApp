@@ -1,8 +1,21 @@
-﻿namespace CarreraWebApp.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace CarreraWebApp.Models
 {
     public enum Facultad
     {
-        Derecho, Sistemas, Civil, Administracion, Psicologia, Forense
+        [Display(Name = "Derecho")]
+        Derecho,
+        [Display(Name = "Ingenieria en Sistemas")]
+        Sistemas,
+        [Display(Name = "Ingenieria Industrial")]
+        Civil,
+        [Display(Name = "Administracion")]
+        Administracion,
+        [Display(Name = "Psicologia")]
+        Psicologia,
+        [Display(Name = "Forense")]
+        Forense
     }
 
     public enum Talla

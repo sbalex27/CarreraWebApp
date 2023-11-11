@@ -2,7 +2,7 @@
 @model CarreraWebApp.Pages.CreateModel
 
 @{
-    ViewData["Title"] = "Create";
+	ViewData["Title"] = "Create";
 }
 
 <h1>Create</h1>
@@ -10,60 +10,62 @@
 <h4>Participante</h4>
 <hr />
 <div class="row">
-    <div class="col-md-4">
-        <form method="post">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Participante.Nombres" class="control-label"></label>
-                <input asp-for="Participante.Nombres" class="form-control" />
-                <span asp-validation-for="Participante.Nombres" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Participante.Apellidos" class="control-label"></label>
-                <input asp-for="Participante.Apellidos" class="form-control" />
-                <span asp-validation-for="Participante.Apellidos" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Participante.Carnet" class="control-label"></label>
-                <input asp-for="Participante.Carnet" class="form-control" />
-                <span asp-validation-for="Participante.Carnet" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Participante.Facultad" class="control-label"></label>
-                <select asp-for="Participante.Facultad" class="form-control"></select>
-                <span asp-validation-for="Participante.Facultad" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Participante.Edad" class="control-label"></label>
-                <input asp-for="Participante.Edad" class="form-control" />
-                <span asp-validation-for="Participante.Edad" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Participante.Personalizacion" class="control-label"></label>
-                <input asp-for="Participante.Personalizacion" class="form-control" />
-                <span asp-validation-for="Participante.Personalizacion" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Participante.Talla" class="control-label"></label>
-                <select asp-for="Participante.Talla" class="form-control"></select>
-                <span asp-validation-for="Participante.Talla" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Participante.Genero" class="control-label"></label>
-                <select asp-for="Participante.Genero" class="form-control"></select>
-                <span asp-validation-for="Participante.Genero" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </form>
-    </div>
+	<div class="col-md-4">
+		<form method="post">
+			<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+			<div class="form-group">
+				<label asp-for="Participante.Nombres" class="control-label"></label>
+				<input asp-for="Participante.Nombres" class="form-control" />
+				<span asp-validation-for="Participante.Nombres" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="Participante.Apellidos" class="control-label"></label>
+				<input asp-for="Participante.Apellidos" class="form-control" />
+				<span asp-validation-for="Participante.Apellidos" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="Participante.Carnet" class="control-label"></label>
+				<input asp-for="Participante.Carnet" class="form-control" />
+				<span asp-validation-for="Participante.Carnet" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="Participante.Facultad" class="control-label"></label>
+				<select asp-for="Participante.Facultad" class="form-control" asp-items="Html.GetEnumSelectList<Models.Facultad>()"></select>
+				<span asp-validation-for="Participante.Facultad" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="Participante.Edad" class="control-label"></label>
+				<input asp-for="Participante.Edad" class="form-control" />
+				<span asp-validation-for="Participante.Edad" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="Participante.Personalizacion" class="control-label"></label>
+				<input asp-for="Participante.Personalizacion" class="form-control" />
+				<span asp-validation-for="Participante.Personalizacion" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="Participante.Talla" class="control-label"></label>
+				<select asp-for="Participante.Talla" class="form-control" asp-items="Html.GetEnumSelectList<Models.Talla>()"></select>
+				<span asp-validation-for="Participante.Talla" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="Participante.Genero" class="control-label"></label>
+				<select asp-for="Participante.Genero" class="form-control" asp-items="Html.GetEnumSelectList<Models.Genero>()"></select>
+				<span asp-validation-for="Participante.Genero" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<input type="submit" value="Create" class="btn btn-primary" />
+			</div>
+		</form>
+	</div>
 </div>
 
 <div>
-    <a asp-page="Index">Back to List</a>
+	<a asp-page="Index">Back to List</a>
 </div>
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+	@{
+		await Html.RenderPartialAsync("_ValidationScriptsPartial");
+	}
 }
