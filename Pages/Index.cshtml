@@ -1,10 +1,78 @@
 ﻿@page
-@model IndexModel
+@model CarreraWebApp.Pages.IndexModel
+
 @{
-    ViewData["Title"] = "Home page";
+    ViewData["Title"] = "Index";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Participante[0].Nombres)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Participante[0].Apellidos)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Participante[0].Carnet)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Participante[0].Facultad)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Participante[0].Edad)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Participante[0].Personalizacion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Participante[0].Talla)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Participante[0].Genero)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Participante) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nombres)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Apellidos)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Carnet)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Facultad)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Edad)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Personalizacion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Talla)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Genero)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
